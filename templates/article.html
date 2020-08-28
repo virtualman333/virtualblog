@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}{{article_title}}{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='editor/css/editormd.preview.css') }}" />
+
+{% endblock %}
+{% block maintext %}
+<fieldset class="layui-elem-field">
+    <legend><h1>{{article_title}}</h1></legend>
+
+     <div class="layui-field-box" >
+        <div >
+            作者 ：{{article_user}}
+        </div>
+         <br>
+        浏览量：<span class="layui-badge">{{ article_views }}</span>&nbsp;&nbsp;
+        点赞数：<span class="layui-badge">{{ article_like_count }}</span>&nbsp;&nbsp;
+        评论数：<span class="layui-badge">{{article_comment_count}}</span>&nbsp;&nbsp;
+        发布时间：<span class="layui-badge-rim">{{ article_datatime }}</span>&nbsp;&nbsp;
+         <a href="/admin/editor?article_id={{ article_id }}">编辑文章</a>
+         <br><br>
+    </div>
+
+    <div id="test-markdown-view">
+    <!-- Server-side output Markdown text -->
+    <textarea style="display:none;">{{ article_content }}</textarea>
+    </div>
+    {% include "article_comment.html" %}
+
+</fieldset>
+{% endblock %}
+{% block footer %}
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='editor/editormd.js') }}"></script>
+    <script src="{{ url_for('static',filename='editor/lib/marked.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editor/lib/prettify.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            var testView = editormd.markdownToHTML("test-markdown-view", {
+                // markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
+                // htmlDecode : true,  // Enable / disable HTML tag encode.
+                // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+            });
+        });
+    </script>
+{% endblock %}
+
+

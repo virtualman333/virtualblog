@@ -1,0 +1,18 @@
+{% extends "admin_base.html" %}
+{% block connect %}
+    <form method="post">
+        <div class="layui-form-item">
+
+            <label class="layui-form-label">name：</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" required  lay-verify="required"  placeholder="请输入名称" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-block">
+                <input type="text" name="url" required  lay-verify="required"  placeholder="请输入url" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <input class="layui-btn" type="submit">
+        </div>
+    </form>
+{% endblock %}

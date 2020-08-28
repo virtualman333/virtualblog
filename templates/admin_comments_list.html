@@ -1,0 +1,14 @@
+{% extends "admin_base.html" %}
+{% block connect %}
+    {% for i in comments %}
+        <div>
+            <b>ID：{{ i[0] }}</b>
+            评论人：{{ i[1] }}
+            <a href="/article?article_id={{ i[2] }}"><b>文章ID：{{ i[2] }}</b></a>
+            发布时间：<span class="layui-badge-rim">{{ i[3] }}</span>&nbsp;&nbsp;
+            <a href="/article?article_id={{ i[2] }}">查看全文</a>
+            <span class="layui-badge-rim"><a href="/admin/comments?delete_id={{ i[0] }}">删除评论</a></span>&nbsp;
+
+        </div>
+    {% endfor %}
+{% endblock %}

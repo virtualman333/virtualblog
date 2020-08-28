@@ -1,0 +1,12 @@
+{% extends "admin_base.html" %}
+{% block connect %}
+    {% for i in classsort %}
+        <div>
+            <b>ID：{{ i[0] }}</b>
+            <a href="/articleClass?classname={{ i[1] }}">分类名：{{ i[1] }}</a>
+
+            <span class="layui-badge-rim"><a href="/admin/class_list?delete_id={{ i[0] }}">删除分类</a></span>&nbsp;
+
+        </div>
+    {% endfor %}
+{% endblock %}

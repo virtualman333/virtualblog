@@ -1,0 +1,66 @@
+<br>
+<hr>
+<div class="layui-card">
+    <div class="layui-card-header">最新评论</div>
+        <div class="layui-card-body">
+
+          <div class="layui-collapse">
+
+          {% for i in comments%}
+              <div class="layui-colla-item">
+
+                  <h2 class="layui-colla-title">
+                      <a href="{{ i[6] }}">{{ i[1] }}</a>
+
+                  </h2>
+
+                  <div class="layui-colla-content layui-show">
+
+                      发表日期：{{ i[3] }}
+                      <br>
+                      电子邮箱：{{ i[5] }}
+                      <br>
+                      {{ i[4] }}
+                  </div>
+            </div>
+          {% endfor %}
+        </div>
+
+    </div>
+</div>
+<br>
+<hr>
+<form class="layui-form layui-form-pane" method="post" action="">
+     <div class="layui-form-item">
+        <label class="layui-form-label">*昵称</label>
+        <div class="layui-input-block">
+          <input type="text" name="user_name" required  lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">*邮箱</label>
+        <div class="layui-input-block">
+          <input type="text" name="comment_mail" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">网址</label>
+        <div class="layui-input-block">
+          <input type="text" name="comment_url"  lay-verify="required" placeholder="请输入网址" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">评论的内容</label>
+    <div class="layui-input-block">
+      <textarea name="comment_content" placeholder="请输入内容" class="layui-textarea"></textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>

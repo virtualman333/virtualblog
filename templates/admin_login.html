@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>后台登录</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- //for-mobile-apps -->
+    <link href="/static/css/css.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+    <!-- main -->
+    <div class="main">
+        <h1>
+            后台登录系统
+        </h1>
+        <form method="post">
+            <input type="text"  name="username" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '用户名';}"
+                   required="">
+            <input type="password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}"
+                   required="">
+            <input type="submit" value="登录">
+        </form>
+    </div>
+    {% include "footer.html" %}
+    <script>
+        {% if message == '登陆成功' %}
+        alert('{{ message }}');
+        window.location.href="/admin";
+        {% endif %}
+        {% if message == '登陆失败' %}
+        alert('{{ message }}');
+        window.location.href="/admin/login";
+        {% endif %}
+
+    </script>
+    <!-- //main -->
+</body>
+</html>

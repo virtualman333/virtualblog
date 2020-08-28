@@ -1,0 +1,43 @@
+<div class="layui-card">
+    <div class="layui-card-header"><b>最新文章</b></div>
+        <div class="layui-card-body">
+        {% for i in artists[0:10] %}
+                <a href="/article?article_id={{ i[0] }}">{{ i[1][0:200] }}</a></br>
+            {% endfor %}
+    </div>
+</div>
+</br>
+<div class="layui-card">
+    <div class="layui-card-header"><b>文章分类</b></div>
+        <div class="layui-card-body">
+            {% for i in artistclass %}
+                <a href="/articleClass?classname={{ i }}">{{ i }}</a></br>
+            {% endfor %}
+    </div>
+</div>
+</br>
+<div class="layui-card">
+    <h2 class="layui-card-header"><b>欢迎投食</b></h2>
+			          <div class="layui-card-body">
+						  <img src="/static/img/wx.png" width="250" height="250">
+						  <img src="/static/img/zfb.jpg" width="250" height="250">
+					  </div>
+			        </div>
+<div class="layui-card">
+    <div class="layui-card-header"><b>关于我</b></div>
+        <div class="layui-card-body">
+            开发者：VIrtualman<br>
+            <a href="tencent://message/?uin=1515518552&Site=QQ交谈&Menu=yes" target="blank">QQ：1515518552(点我联系)</a>
+           <br>
+            邮箱：<a href="mail:cyg2001@sina.com">cyg2001@sina.com</a>
+    </div>
+</div>
+<div class="layui-card">
+    <div class="layui-card-header"><b>友情链接</b></div>
+        <div class="layui-card-body">
+            {% for i in friends %}
+            <a href="{{ i[2] }}">{{ i[1] }}</a><br>
+            {% endfor %}
+    </div>
+</div>
+</br>
